@@ -1,0 +1,74 @@
+/* 全体のスタイル（背景色や文字の形を綺麗にする） */
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto; /* 画面の真ん中に寄せる */
+}
+
+/* 見出しのスタイル */
+h1 {
+    font-size: 24px;
+    color: #444;
+    border-bottom: 2px solid #5c9ee7; /* 青い下線を引く */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* テーブル（表）のスタイル */
+table {
+    width: 100%;
+    border-collapse: collapse; /* 隙間をなくして綺麗な線にする */
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 少しだけ影をつけてフワッと浮かせる */
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px 15px; /* 余白を作って見やすくする */
+    text-align: left;
+}
+
+th {
+    background-color: #5c9ee7; /* 見出しを青色にする */
+    color: white;
+    font-weight: bold;
+}
+
+/* ボタンとリンクの共通スタイル */
+a, button {
+    display: inline-block;
+    padding: 6px 12px;
+    text-decoration: none; /* リンクの下線を消す */
+    font-size: 14px;
+    border-radius: 4px; /* 角を少し丸くする */
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+/* 編集ボタン（緑色） */
+a {
+    background-color: #28a745;
+    color: white;
+    margin-right: 5px;
+}
+a:hover {
+    background-color: #218838; /* マウスを乗せたら少し濃くする */
+}
+
+/* 削除ボタン（赤色）とその周りの設定 */
+form {
+    display: inline-block; /* 編集ボタンと削除ボタンを横に並べる魔法 */
+    margin: 0;
+}
+button {
+    background-color: #dc3545;
+    color: white;
+}
+button:hover {
+    background-color: #c82333; /* マウスを乗せたら少し濃くする */
+}
