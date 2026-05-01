@@ -43,15 +43,25 @@ class CartController extends Controller
         $cart = session()->get('cart', []);
         $quantities = $request->input('quantities', []);
 
-        // 購入履歴
+        // 購入履歴と在庫の処理
         foreach($cart as $item) {
             $buyQty = isset($quantities[$item['id']]) ? $quantities[$item['id']] : $item['quantity'];
 
+            //購入履歴
             Sale::create([
                 'user_id' => Auth::id(),
                 'product_id' => $item['id'],
                 'quantity' => $buyQty, 
             ]);
+
+            //追加：購入した分、商品の在庫を減らす
+            $product = Product::find($item['id']);
+            if ($product) {
+                // 今の在庫から買った個数を引き算
+                $product->stock = $product->stock - $buyQty;
+                if ($product->stock < 0) { $product->stock = 0; }
+                $product->save();
+            }
         }
 
         // 購入が終わったら箱を空っぽにする
